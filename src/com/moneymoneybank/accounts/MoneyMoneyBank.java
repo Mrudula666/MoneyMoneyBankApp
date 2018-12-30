@@ -34,9 +34,7 @@ public class MoneyMoneyBank extends HttpServlet {
     			Class.forName("com.mysql.jdbc.Driver");
     			Connection connection = DriverManager.getConnection
     					("jdbc:mysql://localhost:3306/moneymoneybank_db", "root", "root");
-    			PreparedStatement preparedStatement = 
-    					connection.prepareStatement("DELETE FROM account_details");
-    			preparedStatement.execute();
+    			
     		} catch (ClassNotFoundException e) {
  
     			e.printStackTrace();
