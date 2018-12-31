@@ -1,0 +1,23 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:orange;
+    color: red;
+    text-align: center;
+ }
+ .bgimg{
+ background-image: url('C:\HTML_Assingments\Banking_application\images\ICICI_Bank_4655_356.jpg'); /* The image used */
+  background-color:whitesmoke; /* Used if the image is unavailable */
+  height: 650px; /* You must set a specified height */
+  padding: 30px;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: 100%; /* Resize the background image to cover the entire container */
+ }
+ .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
