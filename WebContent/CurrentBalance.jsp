@@ -18,7 +18,7 @@
 <title>Money Money Bank</title>
 </head>
 <body>
-	<header>
+<header>
 		<nav class="navbar navbar-inverse"
 			style="background-color: orange; border-block-end-color: red">
 			<div class="container-fluid">
@@ -30,8 +30,10 @@
 				<ul class="nav navbar-nav" style="float: right;">
 					<li  style="color: red"><a href="AddNewAccount.mm" style="color: red">Create New Saving Account</a></li>
 					<li><a href="Account.mm" style="color: red">Update Account</a></li>
-					<li><a href="closeaccount.mm" style="color: red">Close Account</a></li>
-					<li><a href="searchaccount.mm" style="color: red">Search Account</a></li>
+					<li><a href="closeaccount.mm" style="color: red">Close
+							Account</a></li>
+					<li><a href="searchaccount.mm" style="color: red">Search
+							Account</a></li>
 					<li><a href="withdraw.mm" style="color: red">Withdraw</a></li>
 					<li><a href="deposit.mm" style="color: red">Deposit</a></li>
 					<li><a href="transferfund.mm" style="color: red">Fund Transfer</a></li>
@@ -43,48 +45,11 @@
 		</nav>
 	</header>
 	<div class="container">
-		<table class="table" border="1">
-			<thead class="thead-dark">
-				<tr>
-					<th>Account Number</th>
-					<th><a href="sortByName.mm">Holder Name</a></th>
-					<th><a href="sortByAccountBalance.mm">Account Balance</a></th>
-					<th>Salary</th>
-					<th>OdLimit</th>
-					<th>Type</th>
-				</tr>
-			</thead>
-			<jstl:if test="${requestScope.account!=null}">
-				<tbody>
-					<tr>
-						<td>${requestScope.account.bankAccount.accountNumber}</td>
-						<td>${requestScope.account.bankAccount.accountHolderName }</td>
-						<td>${requestScope.account.bankAccount.accountBalance}</td>
-						<td>${requestScope.account.salary==true?"Yes":"No"}</td>
-						<td>${"N/A"}</td>
-						<td>${"Savings"}</td>
-					</tr>
-				</tbody>
-			</jstl:if>
-			<jstl:if test="${requestScope.accounts!=null}">
-				<jstl:forEach var="account" items="${requestScope.accounts}">
-					<tbody>
-						<tr>
-							<td>${account.bankAccount.accountNumber}</td>
-							<td>${account.bankAccount.accountHolderName }</td>
-							<td>${account.bankAccount.accountBalance}</td>
-							<td>${account.salary==true?"Yes":"No"}</td>
-							<td>${"N/A"}</td>
-							<td>${"Savings"}</td>
-						</tr>
-					</tbody>
-				</jstl:forEach>
-			</jstl:if>
-		</table>
-	</div>
-	<div class="footer">
-		<p style="color: red; text-align: center">copyright@2018. ICICI
-			pvt ltd.</p>
-	</div>
+            <p style="align-content: center">Current balance of ${requestScope.account.bankAccount.accountHolderName} is ${requestScope.account.bankAccount.accountBalance}</p>
+        </div>
+        <div class="footer">
+                <p style="color: red;text-align: center">copyright@2018. ICICI pvt ltd.</p>
+              </div>
+
 </body>
 </html>
