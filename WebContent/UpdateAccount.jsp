@@ -55,12 +55,12 @@
 			<div class="form-group">
 				<label for="name">Holder Name:</label> <input type="text"
 					class="form-control" name="accountHolderName"
-					placeholder="${requestScope.account.bankAccount.accountHolderName}" >
+					placeholder="${requestScope.account.bankAccount.accountHolderName}" name="accountHolderName">
 			</div>
 			<div class="form-group">
 				<label for="AccountBalance">Account Balance:</label> <input
 					type="number" name="accountBalance" class="form-control"
-					placeholder="${requestScope.account.bankAccount.accountBalance}" readonly="readonly">
+					placeholder="${requestScope.account.bankAccount.accountBalance}" name="accountBal" readonly="readonly">
 			</div>
 			<div>
 				<label for="name">Salary:</label> <label class="form-check-label">

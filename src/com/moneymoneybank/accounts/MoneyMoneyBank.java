@@ -239,7 +239,6 @@ public class MoneyMoneyBank extends HttpServlet {
 				dispatcher = request.getRequestDispatcher("UpdateAccount.jsp");
 				dispatcher.forward(request, response);
 				savingsAccountService.updateAccount(savingAccount);
-				out.println("Update successful");
 				break;
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
