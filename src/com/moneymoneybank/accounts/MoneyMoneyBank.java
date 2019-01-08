@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,6 +35,7 @@ public class MoneyMoneyBank extends HttpServlet {
 	private PrintWriter out;
 	RequestDispatcher dispatcher;
 	boolean flag = true;
+	Logger logger = Logger.getLogger("MoneyMoneyBank");
 
     
 	   @Override
@@ -41,6 +43,7 @@ public class MoneyMoneyBank extends HttpServlet {
 		super.init();
 		
     		try {
+    			logger.info("JDBC connected");
     			Class.forName("com.mysql.jdbc.Driver");
     			Connection connection = DriverManager.getConnection
     					("jdbc:mysql://localhost:3306/moneymoneybank_db", "root", "root");
@@ -62,12 +65,14 @@ public class MoneyMoneyBank extends HttpServlet {
 		
 		int accountNumber = 0;
 		
-		
+		logger.info("Search for jsp pages.");
 		switch(path){
+		
 		case "/AddNewAccount.mm":
 			response.sendRedirect("AddNewAccount.jsp");
 			break;
 		case "/OpenAccount.mm":
+			logger.info("Creates the new account for savings account.");
 			String accouontHolderName = request.getParameter("accountHolderName");
 			double balance = Double.parseDouble(request.getParameter("accountBal"));
 			boolean isSalary = ((request.getParameter("rdSalary").equalsIgnoreCase("no")?false:true));
@@ -83,6 +88,7 @@ public class MoneyMoneyBank extends HttpServlet {
 			response.sendRedirect("CloseAccount.jsp");
 			break;
 		case "/closeAccount.mm":
+			logger.info("Closes the account.");
 			accountNumber = Integer.parseInt(request.getParameter("accountNo"));
 			
 			try {
@@ -98,6 +104,7 @@ public class MoneyMoneyBank extends HttpServlet {
 			response.sendRedirect("GetCurrentBalance.jsp");
 			break;
 		case "/getCurrentBalance.mm":
+			logger.info("Gets the current balance");
 			int accountNumbertoCheckCurrentBalance = Integer.parseInt(request.getParameter("accountNo"));
 			try {
 				savingAccount = savingsAccountService.getCurrentBalance(accountNumbertoCheckCurrentBalance);
@@ -115,6 +122,7 @@ public class MoneyMoneyBank extends HttpServlet {
 			response.sendRedirect("withdraw.jsp");
 			break;
 		case "/WithdrawForm.mm":
+			logger.info("Withdraw the account.");
 			accountNumber = Integer.parseInt(request.getParameter("accountNo"));
 			try {
 				savingAccount = savingsAccountService.getAccountById(accountNumber);
